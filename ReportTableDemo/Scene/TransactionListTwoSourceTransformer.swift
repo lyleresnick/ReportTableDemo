@@ -2,17 +2,17 @@
 
 import UIKit
 
-class TransactionTransformer {
+class TransactionListTwoSourceTransformer {
     
-    private let output: TransactionTransformerOutput
+    private let output: TransactionListTransformerOutput
     
-    init( output: TransactionTransformerOutput ) {
+    init( output: TransactionListTransformerOutput ) {
         self.output = output
     }
     
-    func transform(data: TransactionViewModelIterator, group: TransactionViewModel.Group ) {
+    func transform(data: [TransactionModel], group: TransactionViewModel.Group ) {
         
-        let transactionStream = data.makeIterator()
+        let transactionStream = TransactionViewModel.generator( transactions: data ).makeIterator()
         var currentTransaction = transactionStream.next()
         
         output.appendHeader(title: group.toString())
@@ -23,7 +23,7 @@ class TransactionTransformer {
             return
         }
         
-        let transactionReport = TransactionReportViewModel()
+        let transactionReport = TransactionListViewModel()
         
         while let localCurrentTransaction = currentTransaction {
             

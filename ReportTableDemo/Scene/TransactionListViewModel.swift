@@ -1,15 +1,12 @@
 //  Copyright © 2017 Lyle Resnick. All rights reserved.
 
-import UIKit
-
-
-typealias TransactionViewModelIterator = AnyIterator<TransactionViewModel>
-
-func transactionViewModelGenerator( transactions: [TransactionModel]) -> TransactionViewModelIterator {
+class TransactionListViewModel {
     
-    var generator = transactions.makeIterator()
+    private var totalDouble = 0.0
     
-    return AnyIterator {
-        return TransactionViewModel(transaction: generator.next() )
+    var total: String { return String( format: "%.2f", totalDouble) }
+    
+    func add(amount: Double) {
+        totalDouble += amount
     }
 }

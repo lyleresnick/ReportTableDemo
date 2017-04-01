@@ -65,8 +65,19 @@ struct TransactionViewModel {
         date = TransactionViewModel.outboundDateFormat.string(from: dateAsDate)
     }
     
-    func addAmountToReport(reportModel: TransactionReportViewModel )  {
+    func addAmountToReport(reportModel: TransactionListViewModel )  {
         reportModel.add(amount: Double( amount )!)
     }
+    
+    
+    static func generator( transactions: [TransactionModel]) -> AnyIterator<TransactionViewModel> {
+        
+        var generator = transactions.makeIterator()
+        
+        return AnyIterator {
+            return TransactionViewModel(transaction: generator.next() )
+        }
+    }
+
     
 }

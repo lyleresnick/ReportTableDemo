@@ -2,7 +2,7 @@
 
 import UIKit
 
-class AccountDetailsTransactionListAdapter: NSObject {
+class TransactionListAdapter: NSObject {
     
     fileprivate var rowList = [Row]()
     fileprivate var odd = false
@@ -10,7 +10,7 @@ class AccountDetailsTransactionListAdapter: NSObject {
 
 // MARK: - TransactionTransformerOutput
 
-extension AccountDetailsTransactionListAdapter: TransactionTransformerOutput {
+extension TransactionListAdapter: TransactionListTransformerOutput {
 
     func appendHeader( title: String ) {
     
@@ -47,7 +47,7 @@ extension AccountDetailsTransactionListAdapter: TransactionTransformerOutput {
 
 // MARK: - UITableViewDataSource
 
-extension AccountDetailsTransactionListAdapter: UITableViewDataSource {
+extension TransactionListAdapter: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -64,7 +64,7 @@ extension AccountDetailsTransactionListAdapter: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension AccountDetailsTransactionListAdapter: UITableViewDelegate {
+extension TransactionListAdapter: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowList[ indexPath.row ].height

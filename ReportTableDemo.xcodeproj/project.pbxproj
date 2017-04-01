@@ -8,15 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B359C91B1CFCA76000CE0F2D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B359C91A1CFCA76000CE0F2D /* LICENSE */; };
-		B37BC7F91CF67F9A0080BCDB /* TransactionTransformerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BC7F81CF67F9A0080BCDB /* TransactionTransformerOutput.swift */; };
-		B3A15F021CF24DF400BFABC7 /* AccountDetailsTransactionListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFC1CF24DF400BFABC7 /* AccountDetailsTransactionListAdapter.swift */; };
-		B3A15F031CF24DF400BFABC7 /* AccountDetailsTransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFD1CF24DF400BFABC7 /* AccountDetailsTransactionListViewController.swift */; };
-		B3A15F041CF24DF400BFABC7 /* MultipleGroupTransactionTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFE1CF24DF400BFABC7 /* MultipleGroupTransactionTransformer.swift */; };
-		B3A15F051CF24DF400BFABC7 /* TransactionTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFF1CF24DF400BFABC7 /* TransactionTransformer.swift */; };
-		B3A15F061CF24DF400BFABC7 /* TransactionReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15F001CF24DF400BFABC7 /* TransactionReportViewModel.swift */; };
+		B37BC7F91CF67F9A0080BCDB /* TransactionListTransformerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BC7F81CF67F9A0080BCDB /* TransactionListTransformerOutput.swift */; };
+		B3A15F021CF24DF400BFABC7 /* TransactionListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFC1CF24DF400BFABC7 /* TransactionListAdapter.swift */; };
+		B3A15F031CF24DF400BFABC7 /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFD1CF24DF400BFABC7 /* TransactionListViewController.swift */; };
+		B3A15F041CF24DF400BFABC7 /* TransactionListOneSourceTTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFE1CF24DF400BFABC7 /* TransactionListOneSourceTTransformer.swift */; };
+		B3A15F051CF24DF400BFABC7 /* TransactionListTwoSourceTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFF1CF24DF400BFABC7 /* TransactionListTwoSourceTransformer.swift */; };
+		B3A15F061CF24DF400BFABC7 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15F001CF24DF400BFABC7 /* TransactionListViewModel.swift */; };
 		B3A15F071CF24DF400BFABC7 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15F011CF24DF400BFABC7 /* TransactionViewModel.swift */; };
-		B3A15F091CF482A400BFABC7 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15F081CF482A400BFABC7 /* TransactionListViewModel.swift */; };
-		B3C86F801CE4C0EE00A21CFE /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C86F7F1CE4C0EE00A21CFE /* Transactions.swift */; };
+		B3C86F801CE4C0EE00A21CFE /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C86F7F1CE4C0EE00A21CFE /* TransactionModel.swift */; };
 		B3D6E3ED1CDD217E00DD2325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6E3EC1CDD217E00DD2325 /* AppDelegate.swift */; };
 		B3D6E3F21CDD217E00DD2325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D6E3F01CDD217E00DD2325 /* Main.storyboard */; };
 		B3D6E3F41CDD217E00DD2325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3D6E3F31CDD217E00DD2325 /* Assets.xcassets */; };
@@ -43,15 +42,14 @@
 
 /* Begin PBXFileReference section */
 		B359C91A1CFCA76000CE0F2D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		B37BC7F81CF67F9A0080BCDB /* TransactionTransformerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTransformerOutput.swift; sourceTree = "<group>"; };
-		B3A15EFC1CF24DF400BFABC7 /* AccountDetailsTransactionListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsTransactionListAdapter.swift; sourceTree = "<group>"; };
-		B3A15EFD1CF24DF400BFABC7 /* AccountDetailsTransactionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsTransactionListViewController.swift; sourceTree = "<group>"; };
-		B3A15EFE1CF24DF400BFABC7 /* MultipleGroupTransactionTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleGroupTransactionTransformer.swift; sourceTree = "<group>"; };
-		B3A15EFF1CF24DF400BFABC7 /* TransactionTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTransformer.swift; sourceTree = "<group>"; };
-		B3A15F001CF24DF400BFABC7 /* TransactionReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionReportViewModel.swift; sourceTree = "<group>"; };
+		B37BC7F81CF67F9A0080BCDB /* TransactionListTransformerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListTransformerOutput.swift; sourceTree = "<group>"; };
+		B3A15EFC1CF24DF400BFABC7 /* TransactionListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListAdapter.swift; sourceTree = "<group>"; };
+		B3A15EFD1CF24DF400BFABC7 /* TransactionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
+		B3A15EFE1CF24DF400BFABC7 /* TransactionListOneSourceTTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListOneSourceTTransformer.swift; sourceTree = "<group>"; };
+		B3A15EFF1CF24DF400BFABC7 /* TransactionListTwoSourceTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListTwoSourceTransformer.swift; sourceTree = "<group>"; };
+		B3A15F001CF24DF400BFABC7 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
 		B3A15F011CF24DF400BFABC7 /* TransactionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
-		B3A15F081CF482A400BFABC7 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
-		B3C86F7F1CE4C0EE00A21CFE /* Transactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
+		B3C86F7F1CE4C0EE00A21CFE /* TransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		B3D6E3E91CDD217E00DD2325 /* ReportTableDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReportTableDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D6E3EC1CDD217E00DD2325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3D6E3F11CDD217E00DD2325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,14 +89,13 @@
 		B3A15EFB1CF24DF400BFABC7 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				B3A15EFD1CF24DF400BFABC7 /* AccountDetailsTransactionListViewController.swift */,
-				B3A15EFC1CF24DF400BFABC7 /* AccountDetailsTransactionListAdapter.swift */,
-				B3A15EFF1CF24DF400BFABC7 /* TransactionTransformer.swift */,
-				B37BC7F81CF67F9A0080BCDB /* TransactionTransformerOutput.swift */,
-				B3A15EFE1CF24DF400BFABC7 /* MultipleGroupTransactionTransformer.swift */,
-				B3A15F001CF24DF400BFABC7 /* TransactionReportViewModel.swift */,
+				B3A15EFD1CF24DF400BFABC7 /* TransactionListViewController.swift */,
+				B3A15EFC1CF24DF400BFABC7 /* TransactionListAdapter.swift */,
+				B3A15EFF1CF24DF400BFABC7 /* TransactionListTwoSourceTransformer.swift */,
+				B37BC7F81CF67F9A0080BCDB /* TransactionListTransformerOutput.swift */,
+				B3A15EFE1CF24DF400BFABC7 /* TransactionListOneSourceTTransformer.swift */,
+				B3A15F001CF24DF400BFABC7 /* TransactionListViewModel.swift */,
 				B3A15F011CF24DF400BFABC7 /* TransactionViewModel.swift */,
-				B3A15F081CF482A400BFABC7 /* TransactionListViewModel.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -126,7 +123,7 @@
 			children = (
 				B3A15EFB1CF24DF400BFABC7 /* Scene */,
 				B3D6E3EC1CDD217E00DD2325 /* AppDelegate.swift */,
-				B3C86F7F1CE4C0EE00A21CFE /* Transactions.swift */,
+				B3C86F7F1CE4C0EE00A21CFE /* TransactionModel.swift */,
 				B3D6E41C1CE10E0D00DD2325 /* Color.swift */,
 				B3D6E3F01CDD217E00DD2325 /* Main.storyboard */,
 				B3D6E3F31CDD217E00DD2325 /* Assets.xcassets */,
@@ -272,17 +269,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C86F801CE4C0EE00A21CFE /* Transactions.swift in Sources */,
-				B3A15F091CF482A400BFABC7 /* TransactionListViewModel.swift in Sources */,
-				B37BC7F91CF67F9A0080BCDB /* TransactionTransformerOutput.swift in Sources */,
-				B3A15F061CF24DF400BFABC7 /* TransactionReportViewModel.swift in Sources */,
+				B3C86F801CE4C0EE00A21CFE /* TransactionModel.swift in Sources */,
+				B37BC7F91CF67F9A0080BCDB /* TransactionListTransformerOutput.swift in Sources */,
+				B3A15F061CF24DF400BFABC7 /* TransactionListViewModel.swift in Sources */,
 				B3A15F071CF24DF400BFABC7 /* TransactionViewModel.swift in Sources */,
-				B3A15F051CF24DF400BFABC7 /* TransactionTransformer.swift in Sources */,
+				B3A15F051CF24DF400BFABC7 /* TransactionListTwoSourceTransformer.swift in Sources */,
 				B3D6E41D1CE10E0D00DD2325 /* Color.swift in Sources */,
-				B3A15F041CF24DF400BFABC7 /* MultipleGroupTransactionTransformer.swift in Sources */,
+				B3A15F041CF24DF400BFABC7 /* TransactionListOneSourceTTransformer.swift in Sources */,
 				B3D6E3ED1CDD217E00DD2325 /* AppDelegate.swift in Sources */,
-				B3A15F021CF24DF400BFABC7 /* AccountDetailsTransactionListAdapter.swift in Sources */,
-				B3A15F031CF24DF400BFABC7 /* AccountDetailsTransactionListViewController.swift in Sources */,
+				B3A15F021CF24DF400BFABC7 /* TransactionListAdapter.swift in Sources */,
+				B3A15F031CF24DF400BFABC7 /* TransactionListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

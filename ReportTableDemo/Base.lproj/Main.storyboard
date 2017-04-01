@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pb9-nM-BWR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pb9-nM-BWR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Transaction Details-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AccountDetailsTransactionListViewController" customModule="ReportTableDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TransactionListViewController" customModule="ReportTableDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -185,11 +185,11 @@
                     <navigationItem key="navigationItem" title="Transaction Details" id="HGK-DS-EWx"/>
                     <connections>
                         <outlet property="adapter" destination="mGm-8x-8yT" id="6QC-Y6-S9f"/>
-                        <outlet property="tableView" destination="kDh-kr-cA1" id="T2O-Fn-V30"/>
+                        <outlet property="tableView" destination="kDh-kr-cA1" id="Tw4-T4-zmS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="mGm-8x-8yT" customClass="AccountDetailsTransactionListAdapter" customModule="ReportTableDemo" customModuleProvider="target"/>
+                <customObject id="mGm-8x-8yT" customClass="TransactionListAdapter" customModule="ReportTableDemo" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="777" y="71"/>
         </scene>

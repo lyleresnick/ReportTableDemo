@@ -2,19 +2,20 @@
 
 import UIKit
 
-class MultipleGroupTransactionTransformer {
+class TransactionListOneSourceTransformer {
     
-    fileprivate let output: TransactionTransformerOutput
+    fileprivate let output: TransactionListTransformerOutput
     
-    init( output: TransactionTransformerOutput ) {
+    init( output: TransactionListTransformerOutput ) {
         self.output = output
     }
     
-    func transform(data transactionStream: TransactionViewModelIterator, groupList: [TransactionViewModel.Group]) {
+    func transform(data: [TransactionModel], groupList: [TransactionViewModel.Group]) {
         
         var groupStream = groupList.makeIterator()
         var currentGroup = groupStream.next()
         
+        let transactionStream = TransactionViewModel.generator( transactions: data ).makeIterator()
         var currentTransaction = transactionStream.next()
         
         var minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
@@ -29,7 +30,7 @@ class MultipleGroupTransactionTransformer {
             }
             else {
             
-                let transactionReport = TransactionReportViewModel()
+                let transactionReport = TransactionListViewModel()
                 while let localCurrentTransaction = currentTransaction, localCurrentTransaction.group == localMinGroup {
                     
                     let currentDate = localCurrentTransaction.date

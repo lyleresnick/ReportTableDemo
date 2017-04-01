@@ -1,6 +1,6 @@
 //  Copyright © 2017 Lyle Resnick. All rights reserved.
 
-protocol TransactionTransformerOutput {
+protocol TransactionListTransformerOutput {
     
     func appendHeader( title: String)
     func appendSubheader( date: String )
