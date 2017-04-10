@@ -10,22 +10,34 @@ class TransactionListAdapter: NSObject {
 
 // MARK: - TransactionTransformerOutput
 
+
 extension TransactionListAdapter: TransactionListTransformerOutput {
 
-    func appendHeader( title: String ) {
     
-        rowList.append(.header(title: title));
+    private static func dateFormat(format: String ) -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter
     }
     
-    func appendSubheader( date: String ) {
+    private static let outboundDateFormat = TransactionListAdapter.dateFormat( format: "MMM' 'dd', 'yyyy" )
+    
+
+    func appendHeader( group: TransactionGroup ) {
+    
+        rowList.append(.header(title: group.toString()));
+    }
+    
+    func appendSubheader( date: Date ) {
     
         odd = !odd;
-        rowList.append(.subheader(title: date, odd: odd))
+        let dateString = TransactionListAdapter.outboundDateFormat.string(from: date)
+        rowList.append(.subheader(title: dateString, odd: odd))
     }
     
-    func appendDetail( description: String, amount: String) {
+    func appendDetail( description: String, amount: Double) {
     
-        rowList.append( .detail(description: description, amount: amount, odd: odd));
+        rowList.append( .detail(description: description, amount: String(amount), odd: odd));
     }
     
     func appendSubfooter() {
@@ -33,20 +45,20 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
         rowList.append(.subfooter( odd: odd ));
     }
     
-    func appendFooter( total: String) {
+    func appendFooter( total: Double) {
     
         odd = !odd;
-        rowList.append(.footer(total: total, odd: odd));
+        rowList.append(.footer(total: String(total), odd: odd));
     }
     
-    func appendGrandFooter(grandTotal: String) {
+    func appendGrandFooter(grandTotal: Double) {
         
-        rowList.append(.grandfooter(grandTotal: grandTotal))
+        rowList.append(.grandfooter(grandTotal: String(grandTotal)))
     }
     
-    func appendMessage( message: String) {
+    func appendNoDataMessage( group: TransactionGroup) {
     
-        rowList.append(.message(message: message));
+        rowList.append(.message(message: "\(group.toString()) Transactions are not currently Available. You might want to call us and tell us what you think of that!" ));
     }
 }
 

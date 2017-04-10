@@ -10,27 +10,26 @@ class TransactionListOneSourceTransformer {
         self.output = output
     }
     
-    func transform(data: [TransactionModel], groupList: [TransactionViewModel.Group]) {
+    func transform(data: [TransactionModel], groupList: [TransactionGroup]) {
         
         var groupStream = groupList.makeIterator()
         var currentGroup = groupStream.next()
         
-        let transactionStream = TransactionViewModel.generator( transactions: data ).makeIterator()
+        var transactionStream = data.makeIterator()
         var currentTransaction = transactionStream.next()
         
         var minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
 
         while let localMinGroup = minGroup {
             
-            output.appendHeader(title: localMinGroup.toString())
+            output.appendHeader(group: localMinGroup)
             
             if (currentTransaction == nil) || (localMinGroup != currentTransaction!.group) {
-                
-                output.appendMessage( message: "\(localMinGroup.toString()) Transactions are not currently Available. You might want to call us and tell us what you think of that!")
+                output.appendNoDataMessage( group: localMinGroup)
             }
             else {
             
-                let transactionReport = TransactionListViewModel()
+                var total = 0.0
                 while let localCurrentTransaction = currentTransaction, localCurrentTransaction.group == localMinGroup {
                     
                     let currentDate = localCurrentTransaction.date
@@ -38,21 +37,21 @@ class TransactionListOneSourceTransformer {
                     
                     while let localCurrentTransaction = currentTransaction, (localCurrentTransaction.group == localMinGroup) && (localCurrentTransaction.date == currentDate) {
                         
-                        localCurrentTransaction.addAmountToReport(reportModel: transactionReport)
+                        total += localCurrentTransaction.amount
                         output.appendDetail(description: localCurrentTransaction.description, amount: localCurrentTransaction.amount)
                         
                         currentTransaction = transactionStream.next()
                     }
                     output.appendSubfooter()
                 }
-                output.appendFooter(total: transactionReport.total)
+                output.appendFooter(total: total)
             }
             currentGroup = groupStream.next()
             minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
         }
     }
     
-    func determineMinGroup(group: TransactionViewModel.Group?, transaction: TransactionViewModel?) -> TransactionViewModel.Group? {
+    func determineMinGroup(group: TransactionGroup?, transaction: TransactionModel?) -> TransactionGroup? {
         
         if (group == nil) && (transaction == nil) {
             return nil

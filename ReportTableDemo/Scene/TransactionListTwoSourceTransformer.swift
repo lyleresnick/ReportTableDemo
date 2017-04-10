@@ -10,21 +10,20 @@ class TransactionListTwoSourceTransformer {
         self.output = output
     }
     
-    func transform(data: [TransactionModel], group: TransactionViewModel.Group ) {
+    func transform(data: [TransactionModel], group: TransactionGroup ) {
         
-        let transactionStream = TransactionViewModel.generator( transactions: data ).makeIterator()
+        var transactionStream = data.makeIterator()
         var currentTransaction = transactionStream.next()
         
-        output.appendHeader(title: group.toString())
+        output.appendHeader(group: group)
         
         if currentTransaction == nil {
             
-            output.appendMessage( message: "\(group.rawValue) Transactions are not currently available. You might want to call us and tell us what you think of that!")
+            output.appendNoDataMessage( group: group)
             return
         }
         
-        let transactionReport = TransactionListViewModel()
-        
+        var total = 0.0
         while let localCurrentTransaction = currentTransaction {
             
             let currentDate = localCurrentTransaction.date
@@ -32,12 +31,12 @@ class TransactionListTwoSourceTransformer {
             
             while let localCurrentTransaction = currentTransaction, localCurrentTransaction.date == currentDate {
                 
-                localCurrentTransaction.addAmountToReport(reportModel: transactionReport)
+                total += localCurrentTransaction.amount
                 output.appendDetail(description: localCurrentTransaction.description, amount: localCurrentTransaction.amount)
                 currentTransaction = transactionStream.next()
             }
             output.appendSubfooter()
         }
-        output.appendFooter(total: transactionReport.total)
+        output.appendFooter(total: total)
     }
 }
