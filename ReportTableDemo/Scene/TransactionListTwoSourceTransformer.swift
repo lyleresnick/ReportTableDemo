@@ -10,7 +10,7 @@ class TransactionListTwoSourceTransformer {
         self.output = output
     }
     
-    func transform(data: [TransactionModel], group: TransactionGroup ) {
+    func transform(data: [TransactionModel], group: TransactionGroup ) -> Double {
         
         var transactionStream = data.makeIterator()
         var currentTransaction = transactionStream.next()
@@ -20,7 +20,7 @@ class TransactionListTwoSourceTransformer {
         if currentTransaction == nil {
             
             output.appendNoDataMessage( group: group)
-            return
+            return 0.0
         }
         
         var total = 0.0
@@ -31,12 +31,14 @@ class TransactionListTwoSourceTransformer {
             
             while let localCurrentTransaction = currentTransaction, localCurrentTransaction.date == currentDate {
                 
-                total += localCurrentTransaction.amount
-                output.appendDetail(description: localCurrentTransaction.description, amount: localCurrentTransaction.amount)
+                let amount = localCurrentTransaction.amount
+                total += amount
+                output.appendDetail(description: localCurrentTransaction.description, amount: amount)
                 currentTransaction = transactionStream.next()
             }
             output.appendSubfooter()
         }
         output.appendFooter(total: total)
+        return total
     }
 }

@@ -20,6 +20,7 @@ class TransactionListOneSourceTransformer {
         
         var minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
 
+        var grandTotal = 0.0
         while let localMinGroup = minGroup {
             
             output.appendHeader(group: localMinGroup)
@@ -37,8 +38,10 @@ class TransactionListOneSourceTransformer {
                     
                     while let localCurrentTransaction = currentTransaction, (localCurrentTransaction.group == localMinGroup) && (localCurrentTransaction.date == currentDate) {
                         
-                        total += localCurrentTransaction.amount
-                        output.appendDetail(description: localCurrentTransaction.description, amount: localCurrentTransaction.amount)
+                        let amount = localCurrentTransaction.amount
+                        total += amount
+                        grandTotal += amount
+                        output.appendDetail(description: localCurrentTransaction.description, amount: amount)
                         
                         currentTransaction = transactionStream.next()
                     }
@@ -49,6 +52,8 @@ class TransactionListOneSourceTransformer {
             currentGroup = groupStream.next()
             minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
         }
+        output.appendGrandFooter(total: grandTotal)
+
     }
     
     func determineMinGroup(group: TransactionGroup?, transaction: TransactionModel?) -> TransactionGroup? {

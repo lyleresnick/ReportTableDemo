@@ -84,13 +84,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B331C3281E9C36DF00344D09 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3C86F7F1CE4C0EE00A21CFE /* TransactionModel.swift */,
+				B331C3261E9C302800344D09 /* TransactionGroup.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		B3A15EFB1CF24DF400BFABC7 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				B3A15EFD1CF24DF400BFABC7 /* TransactionListViewController.swift */,
 				B3A15EFC1CF24DF400BFABC7 /* TransactionListAdapter.swift */,
-				B3A15EFF1CF24DF400BFABC7 /* TransactionListTwoSourceTransformer.swift */,
 				B37BC7F81CF67F9A0080BCDB /* TransactionListTransformerOutput.swift */,
+				B3A15EFF1CF24DF400BFABC7 /* TransactionListTwoSourceTransformer.swift */,
 				B3A15EFE1CF24DF400BFABC7 /* TransactionListOneSourceTransformer.swift */,
 			);
 			path = Scene;
@@ -119,8 +128,7 @@
 			children = (
 				B3A15EFB1CF24DF400BFABC7 /* Scene */,
 				B3D6E3EC1CDD217E00DD2325 /* AppDelegate.swift */,
-				B3C86F7F1CE4C0EE00A21CFE /* TransactionModel.swift */,
-				B331C3261E9C302800344D09 /* TransactionGroup.swift */,
+				B331C3281E9C36DF00344D09 /* Models */,
 				B3D6E41C1CE10E0D00DD2325 /* Color.swift */,
 				B3D6E3F01CDD217E00DD2325 /* Main.storyboard */,
 				B3D6E3F31CDD217E00DD2325 /* Assets.xcassets */,

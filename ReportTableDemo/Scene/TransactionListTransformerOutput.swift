@@ -4,10 +4,11 @@ import Foundation
 
 protocol TransactionListTransformerOutput {
     
-    func appendHeader( group: TransactionGroup)
-    func appendSubheader( date: Date )
-    func appendDetail( description: String, amount: Double)
+    func appendHeader(group: TransactionGroup)
+    func appendSubheader(date: Date )
+    func appendDetail(description: String, amount: Double)
     func appendSubfooter()
-    func appendFooter( total: Double)
-    func appendNoDataMessage( group: TransactionGroup)
+    func appendFooter(total: Double)
+    func appendGrandFooter(total: Double)
+    func appendNoDataMessage(group: TransactionGroup)
 }

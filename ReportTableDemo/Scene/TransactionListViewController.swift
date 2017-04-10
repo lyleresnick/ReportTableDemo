@@ -16,8 +16,11 @@ class TransactionListViewController: UIViewController {
     func transformFromTwoSources() {
         
         let transformer = TransactionListTwoSourceTransformer( output: adapter )
-        transformer.transform( data: TransactionModel.authorizedData, group: .Authorized )
-        transformer.transform( data: TransactionModel.postedData, group: .Posted )
+        var grandTotal = 0.0
+        grandTotal += transformer.transform( data: TransactionModel.authorizedData, group: .Authorized )
+        grandTotal += transformer.transform( data: TransactionModel.postedData, group: .Posted )
+        adapter.appendGrandFooter(total: grandTotal)
+
     }
     
     func transformFromOneSource() {

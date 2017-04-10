@@ -51,14 +51,14 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
         rowList.append(.footer(total: String(total), odd: odd));
     }
     
-    func appendGrandFooter(grandTotal: Double) {
+    func appendGrandFooter(total: Double) {
         
-        rowList.append(.grandfooter(grandTotal: String(grandTotal)))
+        rowList.append(.grandfooter(total: String(total)))
     }
     
     func appendNoDataMessage( group: TransactionGroup) {
     
-        rowList.append(.message(message: "\(group.toString()) Transactions are not currently Available. You might want to call us and tell us what you think of that!" ));
+        rowList.append(.message(message: "\(group.toString()) Transactions are not currently available. You might want to call us and tell us what you think of that!" ));
     }
 }
 
@@ -203,7 +203,7 @@ private enum Row {
     case detail( description: String, amount: String, odd: Bool )
     case subfooter( odd : Bool )
     case footer( total: String, odd: Bool )
-    case grandfooter( grandTotal: String )
+    case grandfooter(total: String )
     case message( message: String )
     
     var cellId: CellId {

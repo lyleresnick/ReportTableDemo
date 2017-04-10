@@ -167,7 +167,7 @@
                                             <outlet property="messageLabel" destination="Geo-Kv-9as" id="Lzj-in-5BF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="grandfooter" id="vEU-3l-bvr" customClass="GrandFooterCell" customModule="ReportTableAdapterDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="grandfooter" id="vEU-3l-bvr" customClass="GrandFooterCell" customModule="ReportTableDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="292" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vEU-3l-bvr" id="Fg4-6Q-iOc">
