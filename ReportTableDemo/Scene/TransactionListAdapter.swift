@@ -39,6 +39,11 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
         rowList.append(.footer(total: total, odd: odd));
     }
     
+    func appendGrandFooter(grandTotal: String) {
+        
+        rowList.append(.grandfooter(grandTotal: grandTotal))
+    }
+    
     func appendMessage( message: String) {
     
         rowList.append(.message(message: message));
@@ -144,6 +149,17 @@ class FooterCell: UITableViewCell, TransactionCell {
     }
 }
 
+class GrandFooterCell: UITableViewCell, TransactionCell {
+    
+    @IBOutlet fileprivate var totalLabel: UILabel!
+    
+    fileprivate func bind(row: Row) {
+        
+        guard case let .grandfooter(total) = row else { fatalError("Expected: grandfooter") }
+        totalLabel.text = total
+    }
+}
+
 class MessageCell: UITableViewCell, TransactionCell {
     
     @IBOutlet fileprivate var messageLabel: UILabel!
@@ -165,6 +181,7 @@ private enum CellId: String {
     case detail
     case subfooter
     case footer
+    case grandfooter
     case message
 }
 
@@ -174,6 +191,7 @@ private enum Row {
     case detail( description: String, amount: String, odd: Bool )
     case subfooter( odd : Bool )
     case footer( total: String, odd: Bool )
+    case grandfooter( grandTotal: String )
     case message( message: String )
     
     var cellId: CellId {
@@ -189,6 +207,8 @@ private enum Row {
                 return .subfooter
             case .footer:
                 return .footer
+            case .grandfooter:
+                return .grandfooter
             case .message:
                 return .message
             }
@@ -208,6 +228,8 @@ private enum Row {
                 return 18.0
             case .footer:
                 return 44.0
+            case .grandfooter:
+                return 60.0
             case .message:
                 return 100.0
             }

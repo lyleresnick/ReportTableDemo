@@ -167,6 +167,38 @@
                                             <outlet property="messageLabel" destination="Geo-Kv-9as" id="Lzj-in-5BF"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="grandfooter" id="vEU-3l-bvr" customClass="GrandFooterCell" customModule="ReportTableAdapterDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="292" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vEU-3l-bvr" id="Fg4-6Q-iOc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnx-4w-FHM">
+                                                    <rect key="frame" x="25" y="12" width="85" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.9959705472" green="0.99614065890000003" blue="0.99595981840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYs-vz-Ujq">
+                                                    <rect key="frame" x="314.5" y="12" width="35.5" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.9959705472" green="0.99614065890000003" blue="0.99595981840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Cnx-4w-FHM" firstAttribute="centerY" secondItem="Fg4-6Q-iOc" secondAttribute="centerY" id="7gv-nb-WSX"/>
+                                                <constraint firstAttribute="trailing" secondItem="xYs-vz-Ujq" secondAttribute="trailing" constant="25" id="KQS-n0-r04"/>
+                                                <constraint firstItem="xYs-vz-Ujq" firstAttribute="centerY" secondItem="Fg4-6Q-iOc" secondAttribute="centerY" id="SYe-qY-MM4"/>
+                                                <constraint firstItem="Cnx-4w-FHM" firstAttribute="leading" secondItem="Fg4-6Q-iOc" secondAttribute="leading" constant="25" id="TPj-hW-QMW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="totalLabel" destination="xYs-vz-Ujq" id="Fra-sH-2H7"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="mGm-8x-8yT" id="GNw-ia-pRl"/>
