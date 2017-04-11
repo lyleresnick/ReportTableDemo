@@ -3,14 +3,25 @@
 import UIKit
 
 class TransactionListTwoSourceTransformer {
-    
-    private let output: TransactionListTransformerOutput
-    
-    init( output: TransactionListTransformerOutput ) {
-        self.output = output
+
+    private let authorizedData: [TransactionModel]
+    private let postedData: [TransactionModel]
+
+    init( authorizedData: [TransactionModel], postedData: [TransactionModel] ) {
+        self.authorizedData = authorizedData
+        self.postedData = postedData
     }
+
+    func transform(output: TransactionListTransformerOutput) {
+
+        var grandTotal = 0.0
+        grandTotal += transform( data: authorizedData, group: .Authorized, output: output)
+        grandTotal += transform( data: postedData, group: .Posted, output: output )
+        output.appendGrandFooter(grandTotal: grandTotal)
+    }
+
     
-    func transform(data: [TransactionModel], group: TransactionGroup ) -> Double {
+    private func transform(data: [TransactionModel], group: TransactionGroup, output: TransactionListTransformerOutput ) -> Double {
         
         var transactionStream = data.makeIterator()
         var currentTransaction = transactionStream.next()

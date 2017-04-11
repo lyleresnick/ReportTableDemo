@@ -10,18 +10,14 @@ class TransactionListAdapter: NSObject {
 
 // MARK: - TransactionTransformerOutput
 
-
 extension TransactionListAdapter: TransactionListTransformerOutput {
 
     
-    private static func dateFormat(format: String ) -> DateFormatter {
+    private static let outboundDateFormatter: DateFormatter =  {
         let formatter = DateFormatter()
-        formatter.dateFormat = format
+        formatter.dateFormat = "MMM' 'dd', 'yyyy"
         return formatter
-    }
-    
-    private static let outboundDateFormat = TransactionListAdapter.dateFormat( format: "MMM' 'dd', 'yyyy" )
-    
+    }()
 
     func appendHeader( group: TransactionGroup ) {
     
@@ -31,7 +27,7 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
     func appendSubheader( date: Date ) {
     
         odd = !odd;
-        let dateString = TransactionListAdapter.outboundDateFormat.string(from: date)
+        let dateString = TransactionListAdapter.outboundDateFormatter.string(from: date)
         rowList.append(.subheader(title: dateString, odd: odd))
     }
     
@@ -66,16 +62,15 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
 
 extension TransactionListAdapter: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rowList.count
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let row = rowList[ indexPath.row ]
         let cell = tableView.dequeueReusableCell(withIdentifier: row.cellId.rawValue, for: indexPath)
         (cell as! TransactionCell).bind(row: row)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rowList.count
     }
 }
 

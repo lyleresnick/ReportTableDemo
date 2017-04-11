@@ -4,18 +4,18 @@ import UIKit
 
 class TransactionListOneSourceTransformer {
     
-    fileprivate let output: TransactionListTransformerOutput
+    fileprivate let allData: [TransactionModel]
     
-    init( output: TransactionListTransformerOutput ) {
-        self.output = output
+    init( allData: [TransactionModel] ) {
+        self.allData = allData
     }
     
-    func transform(data: [TransactionModel]) {
+    func transform(output: TransactionListTransformerOutput) {
         
         var groupStream = ([.Authorized, .Posted] as [TransactionGroup]).makeIterator()
         var currentGroup = groupStream.next()
         
-        var transactionStream = data.makeIterator()
+        var transactionStream = allData.makeIterator()
         var currentTransaction = transactionStream.next()
         
         var minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
