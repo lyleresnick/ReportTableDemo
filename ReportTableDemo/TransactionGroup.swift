@@ -14,6 +14,4 @@ enum TransactionGroup: String {
             return "Posted"
         }
     }
-
-    static let groupList: [TransactionGroup] = [.Authorized, .Posted]
 }

@@ -223,7 +223,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="mGm-8x-8yT" customClass="TransactionListAdapter" customModule="ReportTableDemo" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="777" y="71"/>
+            <point key="canvasLocation" x="583" y="53"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v3i-Zs-BJH">

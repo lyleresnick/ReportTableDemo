@@ -10,9 +10,9 @@ class TransactionListOneSourceTransformer {
         self.output = output
     }
     
-    func transform(data: [TransactionModel], groupList: [TransactionGroup]) {
+    func transform(data: [TransactionModel]) {
         
-        var groupStream = groupList.makeIterator()
+        var groupStream = ([.Authorized, .Posted] as [TransactionGroup]).makeIterator()
         var currentGroup = groupStream.next()
         
         var transactionStream = data.makeIterator()
@@ -26,7 +26,7 @@ class TransactionListOneSourceTransformer {
             output.appendHeader(group: localMinGroup)
             
             if (currentTransaction == nil) || (localMinGroup != currentTransaction!.group) {
-                output.appendNoDataMessage( group: localMinGroup)
+                output.appendNotFoundMessage( group: localMinGroup)
             }
             else {
             

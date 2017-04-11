@@ -26,7 +26,7 @@ class TransactionListViewController: UIViewController {
     func transformFromOneSource() {
         
         let transformer = TransactionListOneSourceTransformer( output: adapter )
-        transformer.transform( data: TransactionModel.allData, groupList: TransactionGroup.groupList)
+        transformer.transform( data: TransactionModel.allData)
 
     }
 }

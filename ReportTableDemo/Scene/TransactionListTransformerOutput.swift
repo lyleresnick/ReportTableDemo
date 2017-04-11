@@ -10,5 +10,5 @@ protocol TransactionListTransformerOutput {
     func appendSubfooter()
     func appendFooter(total: Double)
     func appendGrandFooter(total: Double)
-    func appendNoDataMessage(group: TransactionGroup)
+    func appendNotFoundMessage(group: TransactionGroup)
 }

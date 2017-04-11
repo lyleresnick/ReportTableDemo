@@ -56,7 +56,7 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
         rowList.append(.grandfooter(total: String(total)))
     }
     
-    func appendNoDataMessage( group: TransactionGroup) {
+    func appendNotFoundMessage(group: TransactionGroup) {
     
         rowList.append(.message(message: "\(group.toString()) Transactions are not currently available. You might want to call us and tell us what you think of that!" ));
     }

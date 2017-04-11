@@ -19,7 +19,7 @@ class TransactionListTwoSourceTransformer {
         
         if currentTransaction == nil {
             
-            output.appendNoDataMessage( group: group)
+            output.appendNotFoundMessage( group: group)
             return 0.0
         }
         
