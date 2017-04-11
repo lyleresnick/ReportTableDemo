@@ -9,6 +9,6 @@ protocol TransactionListTransformerOutput {
     func appendDetail(description: String, amount: Double)
     func appendSubfooter()
     func appendFooter(total: Double)
-    func appendGrandFooter(total: Double)
+    func appendGrandFooter(grandTotal: Double)
     func appendNotFoundMessage(group: TransactionGroup)
 }

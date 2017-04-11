@@ -19,7 +19,7 @@ class TransactionListViewController: UIViewController {
         var grandTotal = 0.0
         grandTotal += transformer.transform( data: TransactionModel.authorizedData, group: .Authorized )
         grandTotal += transformer.transform( data: TransactionModel.postedData, group: .Posted )
-        adapter.appendGrandFooter(total: grandTotal)
+        adapter.appendGrandFooter(grandTotal: grandTotal)
 
     }
     

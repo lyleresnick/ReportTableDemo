@@ -52,7 +52,7 @@ class TransactionListOneSourceTransformer {
             currentGroup = groupStream.next()
             minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
         }
-        output.appendGrandFooter(total: grandTotal)
+        output.appendGrandFooter(grandTotal: grandTotal)
 
     }
     

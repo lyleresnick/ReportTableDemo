@@ -51,9 +51,9 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
         rowList.append(.footer(total: String(total), odd: odd));
     }
     
-    func appendGrandFooter(total: Double) {
+    func appendGrandFooter(grandTotal: Double) {
         
-        rowList.append(.grandfooter(total: String(total)))
+        rowList.append(.grandfooter(total: String(grandTotal)))
     }
     
     func appendNotFoundMessage(group: TransactionGroup) {
