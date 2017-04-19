@@ -4,10 +4,10 @@ import UIKit
 
 class TransactionListTwoSourceTransformer {
 
-    private let authorizedData: [TransactionModel]
-    private let postedData: [TransactionModel]
+    private let authorizedData: [TransactionModel]?
+    private let postedData: [TransactionModel]?
 
-    init( authorizedData: [TransactionModel], postedData: [TransactionModel] ) {
+    init( authorizedData: [TransactionModel]?, postedData: [TransactionModel]?) {
         self.authorizedData = authorizedData
         self.postedData = postedData
     }
@@ -21,12 +21,24 @@ class TransactionListTwoSourceTransformer {
     }
 
     
-    private func transform(data: [TransactionModel], group: TransactionGroup, output: TransactionListTransformerOutput ) -> Double {
-        
-        var transactionStream = data.makeIterator()
-        var currentTransaction = transactionStream.next()
+    private func transform(data: [TransactionModel]?, group: TransactionGroup, output: TransactionListTransformerOutput ) -> Double {
         
         output.appendHeader(group: group)
+        
+        if data == nil {
+            
+            output.appendNotFoundMessage(group: group)
+            return 0.0
+        }
+        var transactionStream = data!.makeIterator()
+        var currentTransaction = transactionStream.next()
+        
+        
+        if currentTransaction == nil {
+            
+            output.appendNoTransactionsMessage( group: group)
+            return 0.0
+        }
         
         if currentTransaction == nil {
             

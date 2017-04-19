@@ -56,6 +56,12 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
     
         rowList.append(.message(message: "\(group.toString()) Transactions are not currently available. You might want to call us and tell us what you think of that!" ));
     }
+    
+    func appendNoTransactionsMessage(group: TransactionGroup) {
+        
+        rowList.append(.message(message: "There are no \(group.toString()) Transactions in this period" ));
+    }
+
 }
 
 // MARK: - UITableViewDataSource
@@ -175,7 +181,7 @@ class MessageCell: UITableViewCell, TransactionCell {
         
         guard case let .message( message ) = row else { fatalError("Expected: message") }
         messageLabel.text = message
-        setBackgroundColour(odd: false)
+        setBackgroundColour(odd: true)
     }
 }
 

@@ -4,14 +4,22 @@ import UIKit
 
 class TransactionListOneSourceTransformer {
     
-    fileprivate let allData: [TransactionModel]
+    fileprivate let allData: [TransactionModel]?
     
-    init( allData: [TransactionModel] ) {
+    init( allData: [TransactionModel]? ) {
         self.allData = allData
     }
     
     func transform(output: TransactionListTransformerOutput) {
         
+        guard let allData = allData else {
+            output.appendHeader(group: .Authorized)
+            output.appendNotFoundMessage( group: .Authorized)
+            output.appendHeader(group: .Posted)
+            output.appendNotFoundMessage( group: .Posted)
+            return
+        }
+
         var groupStream = ([.Authorized, .Posted] as [TransactionGroup]).makeIterator()
         var currentGroup = groupStream.next()
         
@@ -26,7 +34,7 @@ class TransactionListOneSourceTransformer {
             output.appendHeader(group: localMinGroup)
             
             if (currentTransaction == nil) || (localMinGroup != currentTransaction!.group) {
-                output.appendNotFoundMessage( group: localMinGroup)
+                output.appendNoTransactionsMessage( group: localMinGroup)
             }
             else {
             
