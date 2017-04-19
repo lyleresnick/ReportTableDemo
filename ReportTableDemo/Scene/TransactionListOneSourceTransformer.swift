@@ -12,56 +12,57 @@ class TransactionListOneSourceTransformer {
     
     func transform(output: TransactionListTransformerOutput) {
         
-        guard let allData = allData else {
+        var grandTotal = 0.0
+
+        if let allData = allData {
+
+            var groupStream = ([.Authorized, .Posted] as [TransactionGroup]).makeIterator()
+            var currentGroup = groupStream.next()
+            
+            var transactionStream = allData.makeIterator()
+            var transaction = transactionStream.next()
+            
+            var minGroup = determineMinGroup( group: currentGroup, transaction: transaction )
+
+            while let localMinGroup = minGroup {
+                
+                output.appendHeader(group: localMinGroup)
+                
+                if (transaction == nil) || (localMinGroup != transaction!.group) {
+                    output.appendNoTransactionsMessage( group: localMinGroup)
+                }
+                else {
+                
+                    var total = 0.0
+                    while let localTransaction = transaction, localTransaction.group == localMinGroup {
+                        
+                        let currentDate = localTransaction.date
+                        output.appendSubheader(date: currentDate)
+                        
+                        while let localTransaction = transaction, (localTransaction.group == localMinGroup) && (localTransaction.date == currentDate) {
+                            
+                            let amount = localTransaction.amount
+                            total += amount
+                            grandTotal += amount
+                            output.appendDetail(description: localTransaction.description, amount: amount)
+                            
+                            transaction = transactionStream.next()
+                        }
+                        output.appendSubfooter()
+                    }
+                    output.appendFooter(total: total)
+                }
+                currentGroup = groupStream.next()
+                minGroup = determineMinGroup( group: currentGroup, transaction: transaction )
+            }
+        }
+        else {
             output.appendHeader(group: .Authorized)
             output.appendNotFoundMessage( group: .Authorized)
             output.appendHeader(group: .Posted)
             output.appendNotFoundMessage( group: .Posted)
-            return
-        }
-
-        var groupStream = ([.Authorized, .Posted] as [TransactionGroup]).makeIterator()
-        var currentGroup = groupStream.next()
-        
-        var transactionStream = allData.makeIterator()
-        var currentTransaction = transactionStream.next()
-        
-        var minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
-
-        var grandTotal = 0.0
-        while let localMinGroup = minGroup {
-            
-            output.appendHeader(group: localMinGroup)
-            
-            if (currentTransaction == nil) || (localMinGroup != currentTransaction!.group) {
-                output.appendNoTransactionsMessage( group: localMinGroup)
-            }
-            else {
-            
-                var total = 0.0
-                while let localCurrentTransaction = currentTransaction, localCurrentTransaction.group == localMinGroup {
-                    
-                    let currentDate = localCurrentTransaction.date
-                    output.appendSubheader(date: currentDate)
-                    
-                    while let localCurrentTransaction = currentTransaction, (localCurrentTransaction.group == localMinGroup) && (localCurrentTransaction.date == currentDate) {
-                        
-                        let amount = localCurrentTransaction.amount
-                        total += amount
-                        grandTotal += amount
-                        output.appendDetail(description: localCurrentTransaction.description, amount: amount)
-                        
-                        currentTransaction = transactionStream.next()
-                    }
-                    output.appendSubfooter()
-                }
-                output.appendFooter(total: total)
-            }
-            currentGroup = groupStream.next()
-            minGroup = determineMinGroup( group: currentGroup, transaction: currentTransaction )
         }
         output.appendGrandFooter(grandTotal: grandTotal)
-
     }
     
     func determineMinGroup(group: TransactionGroup?, transaction: TransactionModel?) -> TransactionGroup? {

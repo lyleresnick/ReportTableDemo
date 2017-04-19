@@ -23,45 +23,38 @@ class TransactionListTwoSourceTransformer {
     
     private func transform(data: [TransactionModel]?, group: TransactionGroup, output: TransactionListTransformerOutput ) -> Double {
         
+        var total = 0.0
         output.appendHeader(group: group)
         
-        if data == nil {
+        if let data = data {
             
-            output.appendNotFoundMessage(group: group)
-            return 0.0
-        }
-        var transactionStream = data!.makeIterator()
-        var currentTransaction = transactionStream.next()
-        
-        
-        if currentTransaction == nil {
-            
-            output.appendNoTransactionsMessage( group: group)
-            return 0.0
-        }
-        
-        if currentTransaction == nil {
-            
-            output.appendNotFoundMessage( group: group)
-            return 0.0
-        }
-        
-        var total = 0.0
-        while let localCurrentTransaction = currentTransaction {
-            
-            let currentDate = localCurrentTransaction.date
-            output.appendSubheader(date: currentDate)
-            
-            while let localCurrentTransaction = currentTransaction, localCurrentTransaction.date == currentDate {
-                
-                let amount = localCurrentTransaction.amount
-                total += amount
-                output.appendDetail(description: localCurrentTransaction.description, amount: amount)
-                currentTransaction = transactionStream.next()
+            if data.count == 0 {
+                output.appendNoTransactionsMessage( group: group)
             }
-            output.appendSubfooter()
+            else {
+                var transactionStream = data.makeIterator()
+                var transaction = transactionStream.next()
+
+                while let localTransaction = transaction {
+                    
+                    let currentDate = localTransaction.date
+                    output.appendSubheader(date: currentDate)
+                    
+                    while let localTransaction = transaction, localTransaction.date == currentDate {
+                        
+                        let amount = localTransaction.amount
+                        total += amount
+                        output.appendDetail(description: localTransaction.description, amount: amount)
+                        transaction = transactionStream.next()
+                    }
+                    output.appendSubfooter()
+                }
+                output.appendFooter(total: total)
+            }
         }
-        output.appendFooter(total: total)
+        else {
+            output.appendNotFoundMessage(group: group)
+        }
         return total
     }
 }
