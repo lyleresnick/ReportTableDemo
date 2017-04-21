@@ -33,7 +33,7 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
     
     func appendDetail( description: String, amount: Double) {
     
-        rowList.append( .detail(description: description, amount: String(amount), odd: odd));
+        rowList.append( .detail(description: description, amount: amount.asString, odd: odd));
     }
     
     func appendSubfooter() {
@@ -44,12 +44,12 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
     func appendFooter( total: Double) {
     
         odd = !odd;
-        rowList.append(.footer(total: String(total), odd: odd));
+        rowList.append(.footer(total: total.asString, odd: odd));
     }
     
     func appendGrandFooter(grandTotal: Double) {
         
-        rowList.append(.grandfooter(total: String(grandTotal)))
+        rowList.append(.grandfooter(total: grandTotal.asString))
     }
     
     func appendNotFoundMessage(group: TransactionGroup) {
@@ -61,8 +61,15 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
         
         rowList.append(.message(message: "There are no \(group.toString()) Transactions in this period" ));
     }
-
 }
+
+extension Double {
+    var asString: String {
+        return String(format: "%0.2f", self)
+    }
+}
+
+
 
 // MARK: - UITableViewDataSource
 

@@ -57,10 +57,8 @@ class TransactionListOneSourceTransformer {
             }
         }
         else {
-            output.appendHeader(group: .Authorized)
-            output.appendNotFoundMessage( group: .Authorized)
-            output.appendHeader(group: .Posted)
-            output.appendNotFoundMessage( group: .Posted)
+            output.appendHeader(group: .All)
+            output.appendNotFoundMessage( group: .All)
         }
         output.appendGrandFooter(grandTotal: grandTotal)
     }
