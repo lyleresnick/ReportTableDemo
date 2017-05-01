@@ -9,11 +9,7 @@ struct TransactionModel {
     var description: String
     var amount: Double
     
-    private static let inboundDateFormatter: DateFormatter =  {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy'-'MM'-'dd"
-        return formatter
-    }()
+    private static let inboundDateFormatter = DateFormatter.dateFormatter( format:"yyyy'-'MM'-'dd")
     
     init( group: String, date: String, description: String, amount: String, debit: String ) {
         

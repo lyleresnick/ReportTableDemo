@@ -13,11 +13,7 @@ class TransactionListAdapter: NSObject {
 extension TransactionListAdapter: TransactionListTransformerOutput {
 
     
-    private static let outboundDateFormatter: DateFormatter =  {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM' 'dd', 'yyyy"
-        return formatter
-    }()
+    private static let outboundDateFormatter = DateFormatter.dateFormatter( format: "MMM' 'dd', 'yyyy" )
 
     func appendHeader( group: TransactionGroup ) {
     
