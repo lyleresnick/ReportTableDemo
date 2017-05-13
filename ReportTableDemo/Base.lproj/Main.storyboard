@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pb9-nM-BWR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pb9-nM-BWR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="header" rowHeight="50" id="Bej-hw-nQ9" customClass="HeaderCell" customModule="ReportTableDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="header" rowHeight="50" id="Bej-hw-nQ9" customClass="TransactionListHeaderCell" customModule="ReportTableDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bej-hw-nQ9" id="JIM-Xq-JZH">
@@ -46,10 +46,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1647058824" green="0.4431372549" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="titleLabel" destination="UwP-oO-9Xf" id="Fe6-Vv-Q1f"/>
+                                            <outlet property="titleLabel" destination="UwP-oO-9Xf" id="ckj-fL-zYb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subheader" id="RAb-SX-mTq" customClass="SubheaderCell" customModule="ReportTableDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subheader" id="RAb-SX-mTq" customClass="TransactionListSubheaderCell" customModule="ReportTableDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="78" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RAb-SX-mTq" id="wOk-Ql-ttr">
@@ -69,10 +69,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="titleLabel" destination="F1h-8c-rrX" id="Iy2-gv-Vzi"/>
+                                            <outlet property="titleLabel" destination="F1h-8c-rrX" id="vxv-I3-TxL"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detail" id="ubN-Kf-Nfd" customClass="DetailCell" customModule="ReportTableDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detail" id="ubN-Kf-Nfd" customClass="TransactionListDetailCell" customModule="ReportTableDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="122" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ubN-Kf-Nfd" id="A8T-NR-cdo">
@@ -100,11 +100,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="amountLabel" destination="VHu-Bz-Noi" id="GnF-FG-YLo"/>
-                                            <outlet property="descriptionLabel" destination="tuJ-67-3WF" id="XT5-0l-7AN"/>
+                                            <outlet property="amountLabel" destination="VHu-Bz-Noi" id="0l0-gS-Oe5"/>
+                                            <outlet property="descriptionLabel" destination="tuJ-67-3WF" id="mqb-Yb-Hnc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subfooter" rowHeight="12" id="Wni-il-Coz" customClass="SubfooterCell" customModule="ReportTableDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subfooter" rowHeight="12" id="Wni-il-Coz" customClass="TransactionListSubfooterCell" customModule="ReportTableDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="166" width="375" height="12"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wni-il-Coz" id="BPI-uv-oHe">
@@ -112,7 +112,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="footer" id="qVW-Qo-6aY" customClass="FooterCell" customModule="ReportTableDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="footer" id="qVW-Qo-6aY" customClass="TransactionListFooterCell" customModule="ReportTableDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="178" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qVW-Qo-6aY" id="WYQ-V7-WAz">
@@ -140,38 +140,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="totalLabel" destination="9Oe-Jd-rag" id="8fQ-0x-eRK"/>
+                                            <outlet property="totalLabel" destination="9Oe-Jd-rag" id="pNO-AI-8JN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="message" rowHeight="70" id="vJj-jB-TdO" customClass="MessageCell" customModule="ReportTableDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="222" width="375" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vJj-jB-TdO" id="slc-GK-gK4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Geo-Kv-9as">
-                                                    <rect key="frame" x="25" y="27" width="325" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Geo-Kv-9as" firstAttribute="centerY" secondItem="slc-GK-gK4" secondAttribute="centerY" id="DjM-6v-0ly"/>
-                                                <constraint firstAttribute="trailing" secondItem="Geo-Kv-9as" secondAttribute="trailing" constant="25" id="IN6-Du-guO"/>
-                                                <constraint firstItem="Geo-Kv-9as" firstAttribute="leading" secondItem="slc-GK-gK4" secondAttribute="leading" constant="25" id="Tzt-Wb-lo3"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="messageLabel" destination="Geo-Kv-9as" id="Lzj-in-5BF"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="grandfooter" id="vEU-3l-bvr" customClass="GrandFooterCell" customModule="ReportTableDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="292" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="grandfooter" id="vEU-3l-bvr" customClass="TransactionListGrandFooterCell" customModule="ReportTableDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="222" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vEU-3l-bvr" id="Fg4-6Q-iOc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnx-4w-FHM">
@@ -196,7 +172,31 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.078431372550000003" green="0.41176470590000003" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="totalLabel" destination="xYs-vz-Ujq" id="Fra-sH-2H7"/>
+                                            <outlet property="totalLabel" destination="xYs-vz-Ujq" id="d1m-Pg-k6v"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="message" rowHeight="70" id="vJj-jB-TdO" customClass="TransactionListMessageCell" customModule="ReportTableDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="266" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vJj-jB-TdO" id="slc-GK-gK4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Geo-Kv-9as">
+                                                    <rect key="frame" x="25" y="27" width="325" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Geo-Kv-9as" firstAttribute="centerY" secondItem="slc-GK-gK4" secondAttribute="centerY" id="DjM-6v-0ly"/>
+                                                <constraint firstAttribute="trailing" secondItem="Geo-Kv-9as" secondAttribute="trailing" constant="25" id="IN6-Du-guO"/>
+                                                <constraint firstItem="Geo-Kv-9as" firstAttribute="leading" secondItem="slc-GK-gK4" secondAttribute="leading" constant="25" id="Tzt-Wb-lo3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="Geo-Kv-9as" id="UX7-T2-tU8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

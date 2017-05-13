@@ -78,7 +78,7 @@ extension TransactionListAdapter: UITableViewDataSource {
         
         let row = rowList[ indexPath.row ]
         let cell = tableView.dequeueReusableCell(withIdentifier: row.cellId.rawValue, for: indexPath)
-        (cell as! TransactionCell).bind(row: row)
+        (cell as! TransactionListCell).bind(row: row)
         return cell
     }
 }
@@ -94,11 +94,11 @@ extension TransactionListAdapter: UITableViewDelegate {
 
 // MARK: - Cells
 
-private protocol TransactionCell {
+private protocol TransactionListCell {
     func bind(row: Row)
 }
 
-extension TransactionCell where Self: UITableViewCell {
+extension TransactionListCell where Self: UITableViewCell {
     
     fileprivate func setBackgroundColour(odd: Bool ) {
         
@@ -107,7 +107,7 @@ extension TransactionCell where Self: UITableViewCell {
     }
 }
 
-class HeaderCell: UITableViewCell, TransactionCell {
+class TransactionListHeaderCell: UITableViewCell, TransactionListCell {
     
     @IBOutlet fileprivate var titleLabel: UILabel!
     
@@ -118,7 +118,7 @@ class HeaderCell: UITableViewCell, TransactionCell {
     }
 }
 
-class SubheaderCell: UITableViewCell, TransactionCell {
+class TransactionListSubheaderCell: UITableViewCell, TransactionListCell {
     
     @IBOutlet fileprivate var titleLabel: UILabel!
     
@@ -130,7 +130,7 @@ class SubheaderCell: UITableViewCell, TransactionCell {
     }
 }
 
-class DetailCell: UITableViewCell, TransactionCell {
+class TransactionListDetailCell: UITableViewCell, TransactionListCell {
     
     @IBOutlet fileprivate var descriptionLabel: UILabel!
     @IBOutlet fileprivate var amountLabel: UILabel!
@@ -144,7 +144,7 @@ class DetailCell: UITableViewCell, TransactionCell {
     }
 }
 
-class SubfooterCell: UITableViewCell, TransactionCell {
+class TransactionListSubfooterCell: UITableViewCell, TransactionListCell {
     
     fileprivate func bind(row: Row) {
         
@@ -153,7 +153,7 @@ class SubfooterCell: UITableViewCell, TransactionCell {
     }
 }
 
-class FooterCell: UITableViewCell, TransactionCell {
+class TransactionListFooterCell: UITableViewCell, TransactionListCell {
     
     @IBOutlet fileprivate var totalLabel: UILabel!
     
@@ -165,7 +165,7 @@ class FooterCell: UITableViewCell, TransactionCell {
     }
 }
 
-class GrandFooterCell: UITableViewCell, TransactionCell {
+class TransactionListGrandFooterCell: UITableViewCell, TransactionListCell {
     
     @IBOutlet fileprivate var totalLabel: UILabel!
     
@@ -176,7 +176,7 @@ class GrandFooterCell: UITableViewCell, TransactionCell {
     }
 }
 
-class MessageCell: UITableViewCell, TransactionCell {
+class TransactionListMessageCell: UITableViewCell, TransactionListCell {
     
     @IBOutlet fileprivate var messageLabel: UILabel!
     
