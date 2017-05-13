@@ -4,7 +4,7 @@ import UIKit
 
 class TransactionListAdapter: NSObject {
     
-    fileprivate var rowList = [Row]()
+    fileprivate var rowList = [TransactionListRow]()
     fileprivate var odd = false
 }
 
@@ -77,7 +77,7 @@ extension TransactionListAdapter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let row = rowList[ indexPath.row ]
-        let cell = tableView.dequeueReusableCell(withIdentifier: row.cellId.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: row.cellId, for: indexPath)
         (cell as! TransactionListCell).bind(row: row)
         return cell
     }
@@ -92,103 +92,7 @@ extension TransactionListAdapter: UITableViewDelegate {
     }
 }
 
-// MARK: - Cells
-
-private protocol TransactionListCell {
-    func bind(row: Row)
-}
-
-extension TransactionListCell where Self: UITableViewCell {
-    
-    fileprivate func setBackgroundColour(odd: Bool ) {
-        
-        let backgroundRgb = odd ? 0xF7F8FC : 0xDDDDDD
-        backgroundColor = UIColor( rgb: backgroundRgb )
-    }
-}
-
-class TransactionListHeaderCell: UITableViewCell, TransactionListCell {
-    
-    @IBOutlet fileprivate var titleLabel: UILabel!
-    
-    fileprivate func bind(row: Row) {
-        
-        guard case let .header( title ) = row else { fatalError("Expected: header") }
-        titleLabel.text = title + " Transactions"
-    }
-}
-
-class TransactionListSubheaderCell: UITableViewCell, TransactionListCell {
-    
-    @IBOutlet fileprivate var titleLabel: UILabel!
-    
-    fileprivate func bind(row: Row) {
-        
-        guard case let .subheader( title, odd ) = row else { fatalError("Expected: subheader") }
-        titleLabel.text = title
-        setBackgroundColour(odd: odd)
-    }
-}
-
-class TransactionListDetailCell: UITableViewCell, TransactionListCell {
-    
-    @IBOutlet fileprivate var descriptionLabel: UILabel!
-    @IBOutlet fileprivate var amountLabel: UILabel!
-    
-    fileprivate func bind(row: Row) {
-        
-        guard case let .detail( description, amount, odd ) = row else { fatalError("Expected: detail") }
-        descriptionLabel.text = description
-        amountLabel.text = amount
-        setBackgroundColour(odd: odd)
-    }
-}
-
-class TransactionListSubfooterCell: UITableViewCell, TransactionListCell {
-    
-    fileprivate func bind(row: Row) {
-        
-        guard case let .subfooter( odd ) = row else { fatalError("Expected: subfooter") }
-        setBackgroundColour(odd: odd)
-    }
-}
-
-class TransactionListFooterCell: UITableViewCell, TransactionListCell {
-    
-    @IBOutlet fileprivate var totalLabel: UILabel!
-    
-    fileprivate func bind(row: Row) {
-        
-        guard case let .footer(total, odd) = row else { fatalError("Expected: footer") }
-        totalLabel.text = total
-        setBackgroundColour(odd: odd)
-    }
-}
-
-class TransactionListGrandFooterCell: UITableViewCell, TransactionListCell {
-    
-    @IBOutlet fileprivate var totalLabel: UILabel!
-    
-    fileprivate func bind(row: Row) {
-        
-        guard case let .grandfooter(total) = row else { fatalError("Expected: grandfooter") }
-        totalLabel.text = total
-    }
-}
-
-class TransactionListMessageCell: UITableViewCell, TransactionListCell {
-    
-    @IBOutlet fileprivate var messageLabel: UILabel!
-    
-    fileprivate  func bind(row: Row) {
-        
-        guard case let .message( message ) = row else { fatalError("Expected: message") }
-        messageLabel.text = message
-        setBackgroundColour(odd: true)
-    }
-}
-
-// MARK: - Rows
+// MARK: - TransactionListRows
 
 private enum CellId: String {
     
@@ -201,7 +105,7 @@ private enum CellId: String {
     case message
 }
 
-private enum Row {
+enum TransactionListRow {
     case header( title: String )
     case subheader( title: String, odd: Bool )
     case detail( description: String, amount: String, odd: Bool )
@@ -210,8 +114,9 @@ private enum Row {
     case grandfooter(total: String )
     case message( message: String )
     
-    var cellId: CellId {
-        get {
+    var cellId: String {
+        return {
+            () -> CellId in
             switch self {
             case .header:
                 return .header
@@ -219,16 +124,16 @@ private enum Row {
                 return .subheader
             case  .detail:
                 return .detail
-            case .subfooter:
-                return .subfooter
+            case .message:
+                return .message
             case .footer:
                 return .footer
             case .grandfooter:
                 return .grandfooter
-            case .message:
-                return .message
+            case .subfooter:
+                return .subfooter
             }
-        }
+        } ().rawValue
     }
     
     var height: CGFloat {
