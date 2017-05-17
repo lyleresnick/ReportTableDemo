@@ -59,13 +59,13 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
     }
 }
 
+// MARK: - 
+
 extension Double {
     var asString: String {
         return String(format: "%0.2f", self)
     }
 }
-
-
 
 // MARK: - UITableViewDataSource
 
@@ -92,28 +92,10 @@ extension TransactionListAdapter: UITableViewDelegate {
     }
 }
 
-// MARK: - TransactionListRows
+// MARK: -
 
-private enum CellId: String {
-    
-    case header
-    case subheader
-    case detail
-    case subfooter
-    case footer
-    case grandfooter
-    case message
-}
+private extension TransactionListRow {
 
-enum TransactionListRow {
-    case header( title: String )
-    case subheader( title: String, odd: Bool )
-    case detail( description: String, amount: String, odd: Bool )
-    case subfooter( odd : Bool )
-    case footer( total: String, odd: Bool )
-    case grandfooter(total: String )
-    case message( message: String )
-    
     var cellId: String {
         return {
             () -> CellId in
@@ -135,7 +117,18 @@ enum TransactionListRow {
             }
         } ().rawValue
     }
-    
+
+    private enum CellId: String {
+
+        case header
+        case subheader
+        case detail
+        case subfooter
+        case footer
+        case grandfooter
+        case message
+    }
+
     var height: CGFloat {
         get {
             switch self {

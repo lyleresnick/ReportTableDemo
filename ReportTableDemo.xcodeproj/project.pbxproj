@@ -10,6 +10,7 @@
 		B331C3271E9C302800344D09 /* TransactionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C3261E9C302800344D09 /* TransactionGroup.swift */; };
 		B348D6E31EB7F74900BC010E /* DateFormatter+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348D6E21EB7F74900BC010E /* DateFormatter+Format.swift */; };
 		B35211F61EC777B400BC5C98 /* TransactionListCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35211F51EC777B400BC5C98 /* TransactionListCells.swift */; };
+		B35687A51ECC889800C90856 /* TransactionListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35687A41ECC889800C90856 /* TransactionListRow.swift */; };
 		B359C91B1CFCA76000CE0F2D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B359C91A1CFCA76000CE0F2D /* LICENSE */; };
 		B37BC7F91CF67F9A0080BCDB /* TransactionListTransformerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BC7F81CF67F9A0080BCDB /* TransactionListTransformerOutput.swift */; };
 		B3A15F021CF24DF400BFABC7 /* TransactionListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A15EFC1CF24DF400BFABC7 /* TransactionListAdapter.swift */; };
@@ -45,6 +46,7 @@
 		B331C3261E9C302800344D09 /* TransactionGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionGroup.swift; sourceTree = "<group>"; };
 		B348D6E21EB7F74900BC010E /* DateFormatter+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Format.swift"; sourceTree = "<group>"; };
 		B35211F51EC777B400BC5C98 /* TransactionListCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListCells.swift; sourceTree = "<group>"; };
+		B35687A41ECC889800C90856 /* TransactionListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListRow.swift; sourceTree = "<group>"; };
 		B359C91A1CFCA76000CE0F2D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B37BC7F81CF67F9A0080BCDB /* TransactionListTransformerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListTransformerOutput.swift; sourceTree = "<group>"; };
 		B3A15EFC1CF24DF400BFABC7 /* TransactionListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListAdapter.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				B3A15EFF1CF24DF400BFABC7 /* TransactionListTwoSourceTransformer.swift */,
 				B3A15EFE1CF24DF400BFABC7 /* TransactionListOneSourceTransformer.swift */,
 				B35211F51EC777B400BC5C98 /* TransactionListCells.swift */,
+				B35687A41ECC889800C90856 /* TransactionListRow.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3C86F801CE4C0EE00A21CFE /* TransactionModel.swift in Sources */,
+				B35687A51ECC889800C90856 /* TransactionListRow.swift in Sources */,
 				B37BC7F91CF67F9A0080BCDB /* TransactionListTransformerOutput.swift in Sources */,
 				B35211F61EC777B400BC5C98 /* TransactionListCells.swift in Sources */,
 				B331C3271E9C302800344D09 /* TransactionGroup.swift in Sources */,
