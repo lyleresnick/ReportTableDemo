@@ -15,24 +15,24 @@ class TransactionListTwoSourceTransformer {
     func transform(output: TransactionListTransformerOutput) {
 
         var grandTotal = 0.0
-        grandTotal += transform( data: authorizedData, group: .Authorized, output: output)
-        grandTotal += transform( data: postedData, group: .Posted, output: output )
+        grandTotal += transform( transactions: authorizedData, group: .Authorized, output: output)
+        grandTotal += transform( transactions: postedData, group: .Posted, output: output )
         output.appendGrandFooter(grandTotal: grandTotal)
     }
 
     
-    private func transform(data: [TransactionModel]?, group: TransactionGroup, output: TransactionListTransformerOutput ) -> Double {
+    private func transform(transactions: [TransactionModel]?, group: TransactionGroup, output: TransactionListTransformerOutput ) -> Double {
         
         var total = 0.0
         output.appendHeader(group: group)
         
-        if let data = data {
+        if let transactions = transactions {
             
-            if data.count == 0 {
+            if transactions.count == 0 {
                 output.appendNoTransactionsMessage( group: group)
             }
             else {
-                var transactionStream = data.makeIterator()
+                var transactionStream = transactions.makeIterator()
                 var transaction = transactionStream.next()
 
                 while let localTransaction = transaction {
