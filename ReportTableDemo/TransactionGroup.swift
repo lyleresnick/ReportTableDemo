@@ -7,7 +7,6 @@ enum TransactionGroup: String {
     case Posted = "P"
     case All = "0"
 
-    
     func toString() -> String {
         switch self {
         case .Authorized:
@@ -16,7 +15,6 @@ enum TransactionGroup: String {
             return "Posted"
         case .All:
             return "All"
-
         }
     }
 }
