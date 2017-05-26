@@ -3,17 +3,17 @@
 import Foundation
 
 enum TransactionGroup: String {
-    case Authorized = "A"
-    case Posted = "P"
-    case All = "0"
+    case authorized = "A"
+    case posted = "P"
+    case all = "0"
 
     func toString() -> String {
         switch self {
-        case .Authorized:
+        case .authorized:
             return "Authorized"
-        case .Posted:
+        case .posted:
             return "Posted"
-        case .All:
+        case .all:
             return "All"
         }
     }

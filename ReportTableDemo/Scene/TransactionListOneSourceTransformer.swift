@@ -16,7 +16,7 @@ class TransactionListOneSourceTransformer {
 
         if let allData = allData {
 
-            var groupStream = ([.Authorized, .Posted] as [TransactionGroup]).makeIterator()
+            var groupStream = ([.authorized, .posted] as [TransactionGroup]).makeIterator()
             var currentGroup = groupStream.next()
             
             var transactionStream = allData.makeIterator()
@@ -57,8 +57,8 @@ class TransactionListOneSourceTransformer {
             }
         }
         else {
-            output.appendHeader(group: .All)
-            output.appendNotFoundMessage( group: .All)
+            output.appendHeader(group: .all)
+            output.appendNotFoundMessage( group: .all)
         }
         output.appendGrandFooter(grandTotal: grandTotal)
     }

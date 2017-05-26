@@ -15,8 +15,8 @@ class TransactionListTwoSourceTransformer {
     func transform(output: TransactionListTransformerOutput) {
 
         var grandTotal = 0.0
-        grandTotal += transform( transactions: authorizedData, group: .Authorized, output: output)
-        grandTotal += transform( transactions: postedData, group: .Posted, output: output )
+        grandTotal += transform( transactions: authorizedData, group: .authorized, output: output)
+        grandTotal += transform( transactions: postedData, group: .posted, output: output )
         output.appendGrandFooter(grandTotal: grandTotal)
     }
 
