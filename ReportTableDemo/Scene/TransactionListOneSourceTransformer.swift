@@ -57,8 +57,7 @@ class TransactionListOneSourceTransformer {
             }
         }
         else {
-            output.appendHeader(group: .all)
-            output.appendNotFoundMessage( group: .all)
+            output.appendNotFoundMessage()
         }
         output.appendGrandFooter(grandTotal: grandTotal)
     }
