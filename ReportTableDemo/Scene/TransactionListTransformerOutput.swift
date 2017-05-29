@@ -14,5 +14,4 @@ protocol TransactionListTransformerOutput {
     func appendNoTransactionsMessage(group: TransactionGroup)
     
     func appendNotFoundMessage()
-
 }

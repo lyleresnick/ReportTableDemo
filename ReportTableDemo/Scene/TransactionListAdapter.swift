@@ -63,8 +63,6 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
         rowList.append(.header(title: "All"))
         rowList.append(.message(message: "Transactions are not currently available." ));
     }
-    
-
 }
 
 // MARK: -
