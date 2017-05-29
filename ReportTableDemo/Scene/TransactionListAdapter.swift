@@ -16,12 +16,7 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
 
     func appendHeader(group: TransactionGroup ) {
         
-        appendHeader(groupName: group.toString())
-    }
-    
-    func appendHeader(groupName: String ) {
-        
-        rowList.append(.header(title: groupName))
+        rowList.append(.header(title: group.toString()))
     }
     
     func appendSubheader( date: Date ) {
@@ -54,18 +49,22 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
     
     func appendNotFoundMessage(group: TransactionGroup) {
     
-        appendNotFoundMessage(groupName: group.toString())
-    }
-    
-    func appendNotFoundMessage(groupName: String) {
-        
-        rowList.append(.message(message: "\(groupName) Transactions are not currently available. You might want to call us and tell us what you think of that!" ));
+        rowList.append(.message(message: "\(group.toString()) Transactions are not currently available." ));
+
     }
     
     func appendNoTransactionsMessage(group: TransactionGroup) {
         
         rowList.append(.message(message: "There are no \(group.toString()) Transactions in this period" ));
     }
+    
+    func appendNotFoundMessage() {
+        
+        rowList.append(.header(title: "All"))
+        rowList.append(.message(message: "Transactions are not currently available." ));
+    }
+    
+
 }
 
 // MARK: -

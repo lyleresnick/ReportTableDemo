@@ -10,7 +10,7 @@ class TransactionListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        transformFromOneSource()
+        transformFromTwoSources()
     }
     
     func transformFromTwoSources() {
