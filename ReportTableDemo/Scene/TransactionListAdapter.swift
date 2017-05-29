@@ -12,12 +12,16 @@ class TransactionListAdapter: NSObject {
 
 extension TransactionListAdapter: TransactionListTransformerOutput {
 
-    
     private static let outboundDateFormatter = DateFormatter.dateFormatter( format: "MMM' 'dd', 'yyyy" )
 
-    func appendHeader( group: TransactionGroup ) {
+    func appendHeader(group: TransactionGroup ) {
+        
+        appendHeader(groupName: group.toString())
+    }
     
-        rowList.append(.header(title: group.toString()));
+    func appendHeader(groupName: String ) {
+        
+        rowList.append(.header(title: groupName))
     }
     
     func appendSubheader( date: Date ) {
@@ -50,7 +54,12 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
     
     func appendNotFoundMessage(group: TransactionGroup) {
     
-        rowList.append(.message(message: "\(group.toString()) Transactions are not currently available. You might want to call us and tell us what you think of that!" ));
+        appendNotFoundMessage(groupName: group.toString())
+    }
+    
+    func appendNotFoundMessage(groupName: String) {
+        
+        rowList.append(.message(message: "\(groupName) Transactions are not currently available. You might want to call us and tell us what you think of that!" ));
     }
     
     func appendNoTransactionsMessage(group: TransactionGroup) {
@@ -59,7 +68,7 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
     }
 }
 
-// MARK: - 
+// MARK: -
 
 extension Double {
     var asString: String {
