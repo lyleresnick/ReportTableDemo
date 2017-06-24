@@ -1,25 +1,25 @@
 //  Copyright © 2017 Lyle Resnick. All rights reserved.
 
-import UIKit
+import Foundation
 
 class TransactionListOneSourceTransformer {
     
-    fileprivate let allData: [TransactionModel]?
+    fileprivate let allTransactions: [TransactionModel]?
     
-    init( allData: [TransactionModel]? ) {
-        self.allData = allData
+    init( allTransactions: [TransactionModel]? ) {
+        self.allTransactions = allTransactions
     }
     
     func transform(output: TransactionListTransformerOutput) {
         
         var grandTotal = 0.0
 
-        if let allData = allData {
+        if let allTransactions = allTransactions {
 
             var groupStream = ([.authorized, .posted] as [TransactionGroup]).makeIterator()
             var currentGroup = groupStream.next()
             
-            var transactionStream = allData.makeIterator()
+            var transactionStream = allTransactions.makeIterator()
             var transaction = transactionStream.next()
             
             var minGroup = determineMinGroup( group: currentGroup, transaction: transaction )

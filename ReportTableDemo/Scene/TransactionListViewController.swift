@@ -15,14 +15,15 @@ class TransactionListViewController: UIViewController {
     
     func transformFromTwoSources() {
         
-        let transformer = TransactionListTwoSourceTransformer(authorizedData: TransactionModel.authorizedData,
-                                                              postedData: TransactionModel.postedData)
+        let transformer = TransactionListTwoSourceTransformer(
+            authorizedTransactions: TransactionModel.authorizedTransactions,
+            postedTransactions: TransactionModel.postedTransactions)
         transformer.transform( output: adapter )
     }
     
     func transformFromOneSource() {
         
-        let transformer = TransactionListOneSourceTransformer(allData: TransactionModel.allData)
+        let transformer = TransactionListOneSourceTransformer(allTransactions: TransactionModel.allTransactions)
         transformer.transform(output: adapter)
 
     }

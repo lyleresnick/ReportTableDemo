@@ -44,7 +44,7 @@ struct TransactionModel {
         self.amount = amount
     }
     
-    static let authorizedData = [
+    static let authorizedTransactions = [
         
         TransactionModel( group: "A", date: "2016-04-01", description: "Starbucks", amount: "3.11", debit: "D" ),
         TransactionModel( group: "A", date: "2016-04-01", description: "Firkin", amount: "15.34", debit: "D" ),
@@ -76,7 +76,7 @@ struct TransactionModel {
         TransactionModel( group: "A", date: "2016-04-30", description: "Mark's Work Wearhouse", amount: "206.66", debit: "D" )
     ]
     
-    static let postedData = [
+    static let postedTransactions = [
         
         TransactionModel( group: "P", date: "2016-05-01", description: "Starbucks", amount: "3.11", debit: "D" ),
         TransactionModel( group: "P", date: "2016-05-02", description: "Starbucks", amount: "5.22", debit: "D" ),
@@ -110,5 +110,5 @@ struct TransactionModel {
         TransactionModel( group: "P", date: "2016-05-30", description: "Mark's Work Wearhouse", amount: "206.66", debit: "D" ),
         ]
     
-    static var allData: [TransactionModel] { return authorizedData + postedData }
+    static var allTransactions: [TransactionModel] { return authorizedTransactions + postedTransactions }
 }
