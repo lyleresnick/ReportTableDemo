@@ -67,7 +67,7 @@ extension TransactionListAdapter: TransactionListTransformerOutput {
 
 // MARK: -
 
-extension Double {
+private extension Double {
     var asString: String {
         return String(format: "%0.2f", self)
     }
