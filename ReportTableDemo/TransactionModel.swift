@@ -4,10 +4,10 @@ import Foundation
 
 struct TransactionModel {
     
-    var group: TransactionGroup
-    var date: Date
-    var description: String
-    var amount: Double
+    let group: TransactionGroup
+    let date: Date
+    let description: String
+    let amount: Double
     
     private static let inboundDateFormatter = DateFormatter.dateFormatter( format:"yyyy'-'MM'-'dd")
     
