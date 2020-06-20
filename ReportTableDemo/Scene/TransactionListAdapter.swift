@@ -89,15 +89,6 @@ extension TransactionListAdapter: UITableViewDataSource {
     }
 }
 
-// MARK: - UITableViewDelegate
-
-extension TransactionListAdapter: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return rowList[ indexPath.row ].height
-    }
-}
-
 // MARK: -
 
 private extension TransactionListRow {
@@ -133,27 +124,6 @@ private extension TransactionListRow {
         case footer
         case grandfooter
         case message
-    }
-
-    var height: CGFloat {
-        get {
-            switch self {
-            case .header:
-                return 60.0
-            case .subheader:
-                return 34.0
-            case .detail:
-                return 18.0
-            case .subfooter:
-                return 18.0
-            case .footer:
-                return 44.0
-            case .grandfooter:
-                return 60.0
-            case .message:
-                return 100.0
-            }
-        }
     }
 }
 
